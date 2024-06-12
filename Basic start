@@ -1,0 +1,18 @@
+def calculate_average(numbers):
+    if not numbers:
+        return None  
+
+    total = sum(numbers)
+    average = total / len(numbers)
+    return average
+    
+numbers_list=[]
+n = int(input("\nEnter the length of array"))
+print("\nEnter the number")
+
+for i in range(0,n):
+    element = int(input())
+    numbers_list.append(element)
+    
+result = calculate_average(numbers_list)
+print(f"The average is: {result}")
