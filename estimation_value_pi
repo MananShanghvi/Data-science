@@ -1,0 +1,42 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def func(x):
+    return np.exp(-x**2)
+
+# Number of points
+N = 1000
+
+# random points within the interval [0, 1]
+random_points_x = np.random.uniform(0, 1, N)
+random_points_y = np.random.uniform(0, 1, N)
+
+# Calculate the function values at these points
+function_values = func(random_points_x)
+
+# Calculate the area of the right-angled triangle
+triangle_area = 0.5 * 1 * 1  # base * height
+
+# Count the number of points inside the triangle
+points_inside_triangle = np.sum(random_points_x + random_points_y <= 1)
+
+# Calculate the area of the region under the curve
+curve_area = np.mean(function_values)
+
+# Calculate the ratio of areas
+ratio = triangle_area / curve_area
+
+# Plot the function and the random points
+x = np.linspace(0, 1, 100)
+plt.figure(figsize=(8, 6))
+plt.plot(x, func(x), label='e^(-x^2)')
+plt.scatter(random_points_x, random_points_y, color='red', label='Random Points')
+plt.fill_between(x, func(x), color='lightblue', alpha=0.3)
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.title('Monte Carlo Integration for e^(-x^2)')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+print("Ratio of areas of points lying inside the right-angled triangle and curve:", ratio)
