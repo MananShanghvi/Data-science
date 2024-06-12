@@ -1,0 +1,13 @@
+def print_nth_element(dictionary, n):
+    items = list(dictionary.items())
+
+    if 0 <= n < len(items):
+        key, value = items[n]
+        print(f"The {n +1}th element in the dictionary is: {key}: {value}")
+    else:
+        print(f"Invalid index. The dictionary has {len(items)} elements.")
+
+my_dict = {'1': "Kshitij", '2': "Manan", '3': "Poorva", '4': "Prajwal"}
+index_to_print = int(input("\nEnter the Roll number"))  
+
+print_nth_element(my_dict, index_to_print-1)
